@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>组件客制化</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      #target {
+        position: absolute;
+        width: 0;
+        height: 0;
+
+        /* top: 30px; */
+        /* left: 350px; */
+        border: none;
+
+        /* width: 414px; */
+        /* height: 736px; */
+      }
+      #container {
+        height: 400px;
+        overflow: hidden;
+        max-width: 300px;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id="target" name="target" src="target.html"></iframe>
+    <!-- https://sv.baidu.com/cashliveui/simpleboard.html#/?c=1&activity_id=1083 -->
+    <!-- <iframe id="target" name="target" src="http://sv.baidu.com/cashliveui/simpleboard.html#/?c=1&activity_id=1083"></iframe> -->
+    <!-- <div id="container"> -->
+    <div id="app"></div>
+    <!-- </div> -->
+    <script src="dist/devtools.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+app: customize
+stage: dev
+component: express
+name: api
+
+inputs:
+  src: ./
+  functionName: ${name}
+  region: ${env:REGION}
+  runtime: Nodejs10.15
+  exclude:
+    - .env
+  functionConf:
+    timeout: 30
+    vpcConfig:
+      vpcId: ${env:VPC_ID}
+      subnetId: ${env:SUBNET_ID}
+    environment:
+      variables:
+        PG_CONNECT_STRING: ${output:${stage}:${app}:db.private.connectionString}
+  apigatewayConf:
+    enableCORS: true
+    protocols:
+      - http
+      - https

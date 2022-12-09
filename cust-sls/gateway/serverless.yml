@@ -1,0 +1,18 @@
+app: customize
+stage: dev
+component: apigateway
+name: apigw
+
+inputs:
+  region: ${env:REGION}
+  protocols:
+    - http
+    - https
+  environment: release
+  endpoints:
+    - path: /
+      protocol: HTTP
+      method: GET
+      apiName: index
+      function:
+        functionName: addConfig

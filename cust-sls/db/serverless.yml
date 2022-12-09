@@ -1,0 +1,14 @@
+app: customize
+stage: dev
+
+component: postgresql
+name: db
+
+inputs:
+  region: ${env:REGION}
+  zone: ${env:ZONE}
+  dBInstanceName: ${name}
+  vpcConfig:
+    vpcId: ${env:VPC_ID}
+    subnetId: ${env:SUBNET_ID}
+  extranetAccess: true
