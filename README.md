@@ -8,4 +8,4 @@
 npm run dev
 ```
 
-[](imgs/开发一个Vue定制化平台.png)
+![](imgs/开发一个Vue定制化平台.png)
