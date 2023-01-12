@@ -2,32 +2,32 @@
     <el-form-item class="option-item" :label="option.key">
         <el-switch
             v-if="type=='Boolean'"
-            v-model="value"
+            :value="val"
             active-color="#13ce66"
             inactive-color="#ff4949"
             @change="onChange">
         </el-switch>
 
-        <el-input v-if="type=='String'" v-model="value" placeholder="请输入内容" @input="onChange"/>
+        <el-input v-if="type=='String'" :value="val" placeholder="请输入内容" @input="onChange"/>
 
-        <el-color-picker v-if="type=='Color'" :value="value" @change="onChange"/>
+        <el-color-picker v-if="type=='Color'" :value="val" @change="onChange"/>
 
         <el-date-picker
             v-if="type=='Date'"
-            v-model="value"
+            :value="val"
             type="date"
             @change="onChange"
             placeholder="选择日期"/>
 
         <el-date-picker
             v-if="type==''"
-            v-model="value"
+            :value="val"
             type="datetime"
             placeholder="选择日期时间"/>
 
         <el-time-select
             v-if="type==''"
-            v-model="value"
+            :value="val"
             :picker-options="{
                 start: '08:30',
                 step: '00:15',
@@ -42,7 +42,7 @@
 
         <el-select 
             v-if="type==''"
-            v-model="value" placeholder="请选择">
+            :value="val" placeholder="请选择">
             <el-option
             v-for="item in [{value: 1}, {value: 2}]"
             :key="item.value"
@@ -70,8 +70,11 @@ export default {
     data() {
         return {
             form: {},
-            value: ''
+            val: ''
         }
+    },
+    mounted() {
+        this.val = this.value
     },
     methods: {
         ...mapActions('vuex', [
@@ -80,6 +83,7 @@ export default {
             'editState'
         ]),
         onChange(value) {
+            this.val = value
             this.commitMutation({
                 type: 'editRule',
                 payload: {

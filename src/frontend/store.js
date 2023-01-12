@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import components from '@front-new/views/components/module'
+import components from '@front/views/components/module'
 import vuex from '@front/views/vuex/module'
 // import events from '@front/views/events/module'
 // import router from '@front/views/router/module'
@@ -47,7 +47,7 @@ export function createStore () {
 
   if (module.hot) {
     module.hot.accept([
-      '@front-new/views/components/module',
+      '@front/views/components/module',
       '@front/views/vuex/module',
       // '@front/views/events/module',
       // '@front/views/router/module',
@@ -57,7 +57,7 @@ export function createStore () {
       try {
         store.hotUpdate({
           modules: {
-            components: require('@front-new/views/components/module').default,
+            components: require('@front/views/components/module').default,
             vuex: require('@front/views/vuex/module').default,
             // events: require('@front/views/events/module').default,
             // router: require('@front/views/router/module').default,

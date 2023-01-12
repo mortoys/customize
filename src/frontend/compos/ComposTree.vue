@@ -7,7 +7,7 @@
       :highlight-current="true"
       :expand-on-click-node="false"
       @node-click="select">
-      <span class="custom-tree-node" slot-scope="{ node, data }">
+      <span class="custom-tree-node" slot-scope="{ node, data }" @mouseenter="enter(node, data)" @mouseleave="leave(node, data)">
         <span>{{ node.label }}</span>
       </span>
     </el-tree>
@@ -67,6 +67,15 @@ export default {
 
     stopSelector () {
       this.setSelecting(false)
+    },
+
+    enter (node, data) {
+      console.log(node, data)
+      bridge.send('enter-instance', data.id)
+    },
+
+    leave (node, data) {
+      bridge.send('leave-instance', data.id)
     },
 
     setSelecting (value) {

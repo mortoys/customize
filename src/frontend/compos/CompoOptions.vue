@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="form" :model="form" label-width="80px" class="compos-options">
+  <el-form ref="form" :model="form" label-width="80px" class="compos-options" label-position="top">
     <el-button type="primary" class="btn-submit" @click="onSubmit">提交</el-button>
     <OptionItem 
         v-for="option in filterByName" :key="option.id"
@@ -98,9 +98,18 @@ export default {
 
     padding: 0px 4px;
     margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
 
     .btn-submit {
-        margin: 0 20px 30px;
+        margin: 0 0 30px;
+        width: 100%;
     }
+}
+</style>
+
+<style>
+.el-form-item__label {
+    line-height: 14px;
 }
 </style>

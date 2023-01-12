@@ -25,7 +25,7 @@ export default {
 .board {
     width: 100%;
     /* border: solid; */
-    height: 1400px;
+    /* height: 1400px; */
     margin-top: -156px;
     z-index: 222;
     position: absolute;
